@@ -262,7 +262,7 @@
         <canvas id="trace"></canvas>
         <div class="pill-x">✕</div>
       </div>
-      <p class="demo-hint">the live voice pulse — hold <kbd>⌃ Control</kbd>, watch it hear you</p>
+      <p class="demo-hint">the live voice pulse — hold <kbd>⇧ Shift</kbd>, watch it hear you</p>
     </div>
   </div>
 </header>
@@ -409,6 +409,8 @@
       <a href="https://github.com/DistinctZA/voiceapp-releases/releases">Releases</a>
       &nbsp;·&nbsp;
       <a href="https://github.com/DistinctZA/voiceapp-releases">Update feed</a>
+      &nbsp;·&nbsp;
+      <a href="#" id="contact-link">Contact</a>
     </span>
   </div>
 </footer>
@@ -497,6 +499,13 @@ function type() {
   }
 }
 type();
+
+/* ---------- contact (assembled at runtime to avoid scrapers) ---------- */
+const cl = document.getElementById("contact-link");
+cl.addEventListener("click", (e) => {
+  e.preventDefault();
+  location.href = "mailto:" + atob("cmlja3l0ZWR3YWduZXJAZ21haWwuY29t") + "?subject=VoiceApp";
+});
 
 /* ---------- resolve direct DMG link ---------- */
 fetch("https://api.github.com/repos/DistinctZA/voiceapp-releases/releases/latest")
