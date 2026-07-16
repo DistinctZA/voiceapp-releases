@@ -80,7 +80,14 @@
     background: radial-gradient(ellipse 50% 45% at 50% 30%, rgba(187, 255, 2, 0.07), transparent 70%);
     pointer-events: none;
   }
-  .hero-icon { width: 96px; height: 96px; border-radius: 24px; margin-bottom: 28px;
+  .free-badge {
+    display: inline-block; margin-bottom: 18px;
+    color: var(--lime); background: var(--lime-soft);
+    border: 1px solid var(--lime-edge); border-radius: 99px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 6px 16px;
+  }
+  .hero-icon { width: 96px; height: 96px; border-radius: 24px; margin-bottom: 22px;
     box-shadow: 0 12px 48px rgba(0,0,0,0.5), 0 0 60px rgba(187,255,2,0.1); }
   h1 {
     font-size: clamp(38px, 6.5vw, 68px);
@@ -286,10 +293,11 @@
   <div class="halo"></div>
   <div class="wrap">
     <img class="hero-icon" src="assets/icon-256.png" alt="VoiceApp icon" />
+    <p class="free-badge">100% free · no account · no subscription</p>
     <h1>Hold a key. Speak.<br />Your words appear — <span class="lime">in&nbsp;any&nbsp;app</span>.</h1>
-    <p class="sub">VoiceApp is push-to-talk dictation for your Mac. Talk while you hold your hotkey, release, and the text types itself where your cursor is — editor, browser, chat, terminal.</p>
+    <p class="sub">VoiceApp is free push-to-talk dictation for your Mac. Talk while you hold your hotkey, release, and the text types itself where your cursor is — editor, browser, chat, terminal.</p>
     <div class="cta-row">
-      <a class="btn" id="hero-download" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download for macOS</a>
+      <a class="btn" id="hero-download" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download Free for macOS</a>
       <a class="btn ghost" href="https://github.com/DistinctZA/voiceapp-releases/releases">All releases</a>
     </div>
     <p class="cta-note" id="version-note">macOS · Apple Silicon · free download</p>
@@ -504,7 +512,7 @@
     <p class="eyebrow">Free download</p>
     <h2>Stop typing what you could just say.</h2>
     <div class="cta-row">
-      <a class="btn" id="final-download" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download VoiceApp</a>
+      <a class="btn" id="final-download" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download VoiceApp — Free</a>
     </div>
     <p class="cta-note">macOS · Apple Silicon · updates itself · free forever</p>
     <p class="cta-note" style="margin-top:8px">
