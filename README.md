@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download for macOS</a>
   &nbsp;·&nbsp;
-  <a href="https://distinctza.github.io/voiceapp-releases/">Website</a>
+  <a href="https://voice-app.xyz/">Website</a>
 </p>
 
 ---
