@@ -212,6 +212,23 @@
   .model-row .badge { color: var(--lime); font-size: 11.5px; font-weight: 700; letter-spacing: 0.05em; }
   .footer-bar { border-top: 1px solid var(--edge); padding: 9px 16px; display: flex; justify-content: space-between; color: var(--faint); font-size: 11.5px; }
   .footer-bar .cloud-chip { color: var(--lime); display: flex; align-items: center; gap: 6px; }
+  .model-card {
+    border: 1px solid var(--edge); border-radius: 12px; padding: 14px 16px;
+    display: flex; justify-content: space-between; gap: 16px; align-items: flex-start;
+    background: #34332f; margin: 0 16px 10px;
+  }
+  .model-card.active { border-color: var(--lime); background: var(--lime-soft); }
+  .model-card h5 { font-size: 13.5px; display: flex; align-items: center; gap: 8px; }
+  .model-card .active-pill {
+    background: var(--lime); color: #131400; font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 99px; letter-spacing: 0.04em;
+  }
+  .model-card p { color: var(--dim); font-size: 12px; margin-top: 4px; max-width: 46ch; }
+  .model-card .meta { color: var(--faint); font-size: 11px; margin-top: 8px; }
+  .meters { display: flex; flex-direction: column; gap: 6px; min-width: 130px; }
+  .meter { display: flex; align-items: center; gap: 8px; font-size: 10.5px; color: var(--faint); justify-content: flex-end; }
+  .meter .bar { width: 64px; height: 5px; border-radius: 3px; background: rgba(244,243,239,0.12); overflow: hidden; }
+  .meter .bar i { display: block; height: 100%; background: var(--lime); border-radius: 3px; }
 
   /* final cta */
   .final { text-align: center; padding: 110px 0 96px; position: relative; }
@@ -393,6 +410,67 @@
           <div class="footer-bar setting-card" style="border-radius:10px">
             <span class="cloud-chip">● Cloud · grok-stt</span>
             <span>Check for updates · v1.1.9</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="window" aria-hidden="true" style="margin-top: 28px;">
+      <div class="titlebar">
+        <span class="dot" style="background:#ff5f57"></span>
+        <span class="dot" style="background:#febc2e"></span>
+        <span class="dot" style="background:#28c840"></span>
+        <span class="t">VoiceApp</span>
+      </div>
+      <div class="app-body">
+        <div class="side">
+          <div class="logo"><img src="assets/icon-256.png" alt="" />VoiceApp</div>
+          <div class="nav-item">General</div>
+          <div class="nav-item active">Models</div>
+          <div class="nav-item">Advanced</div>
+          <div class="nav-item">History</div>
+          <div class="nav-item">About</div>
+        </div>
+        <div class="main-pane">
+          <div class="group-label">Downloaded models — run 100% on-device</div>
+          <div class="setting-card" style="padding-top:14px; padding-bottom:6px;">
+            <div class="model-card active">
+              <div>
+                <h5>Parakeet TDT 0.6B v2 <span class="active-pill">ACTIVE</span></h5>
+                <p>NVIDIA Parakeet — fast, accurate English ASR with punctuation and timestamps.</p>
+                <div class="meta">🌐 English Only &nbsp;·&nbsp; 451 MB</div>
+              </div>
+              <div class="meters">
+                <div class="meter">accuracy <span class="bar"><i style="width:92%"></i></span></div>
+                <div class="meter">speed <span class="bar"><i style="width:96%"></i></span></div>
+              </div>
+            </div>
+            <div class="model-card">
+              <div>
+                <h5>Whisper Turbo</h5>
+                <p>Balanced accuracy and speed. 90+ languages.</p>
+                <div class="meta">🌐 Multi-language &nbsp;·&nbsp; 1.5 GB</div>
+              </div>
+              <div class="meters">
+                <div class="meter">accuracy <span class="bar"><i style="width:88%"></i></span></div>
+                <div class="meter">speed <span class="bar"><i style="width:62%"></i></span></div>
+              </div>
+            </div>
+            <div class="model-card">
+              <div>
+                <h5>Whisper Large</h5>
+                <p>Best accuracy, slower. 90+ languages. Translate to English.</p>
+                <div class="meta">🌐 Multi-language &nbsp;·&nbsp; 1.0 GB</div>
+              </div>
+              <div class="meters">
+                <div class="meter">accuracy <span class="bar"><i style="width:97%"></i></span></div>
+                <div class="meter">speed <span class="bar"><i style="width:45%"></i></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bar setting-card" style="border-radius:10px">
+            <span style="color:var(--dim)">● Parakeet TDT 0.6B v2</span>
+            <span>Models download once · work offline forever</span>
           </div>
         </div>
       </div>
