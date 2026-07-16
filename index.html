@@ -690,6 +690,36 @@ fetch("https://api.github.com/repos/DistinctZA/voiceapp-releases/releases/latest
       `Version ${v} · macOS · Apple Silicon · free download`;
   })
   .catch(() => {});
+
+/* ---------- ?shot= isolation mode for generating marketing captures ---------- */
+const shotTarget = new URLSearchParams(location.search).get("shot");
+if (shotTarget) {
+  const map = {
+    general: () => document.querySelectorAll(".window")[0],
+    models: () => document.querySelectorAll(".window")[1],
+    demo: () => document.querySelector(".demo-stage"),
+  };
+  const el = map[shotTarget] && map[shotTarget]();
+  if (el) {
+    document.querySelectorAll("nav, header, section, footer, #bg-wave").forEach(n => n.style.display = "none");
+    document.body.style.background = "#191817";
+    el.closest("section, header").style.display = "block";
+    const isolate = el.cloneNode(true);
+    document.body.querySelectorAll("section, header").forEach(n => n.style.display = "none");
+    isolate.style.margin = "20px";
+    isolate.style.maxWidth = "1000px";
+    document.body.appendChild(isolate);
+    if (shotTarget === "demo") {
+      // freeze the pulse mid-speech for the capture
+      const c = isolate.querySelector("canvas");
+      const src = document.querySelector(".demo-stage canvas");
+      const copy = () => { c.width = src.width; c.height = src.height;
+        c.getContext("2d").drawImage(src, 0, 0); };
+      speaking = true; setTimeout(copy, 1200); setInterval(copy, 300);
+      const t = isolate.querySelector("#typed"); if (t) t.textContent = "";
+    }
+  }
+}
 </script>
 </body>
 </html>
