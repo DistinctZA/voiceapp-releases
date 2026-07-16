@@ -100,12 +100,27 @@
     margin: 64px auto 0; max-width: 560px;
     display: flex; flex-direction: column; align-items: center; gap: 18px;
   }
-  .type-line {
-    font-size: 17px; color: var(--text); min-height: 28px;
-    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  .chat-demo {
+    width: 100%; max-width: 520px;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-raise); border: 1px solid var(--edge-strong);
+    border-radius: 24px; padding: 12px 12px 12px 20px;
+    box-shadow: 0 10px 36px rgba(0,0,0,0.4);
   }
-  .type-line .caret {
-    display: inline-block; width: 9px; height: 19px; margin-left: 2px;
+  .chat-demo .msg {
+    flex: 1; font-size: 15.5px; color: var(--text); min-height: 24px;
+    text-align: left;
+  }
+  .chat-demo .msg .placeholder { color: var(--faint); }
+  .chat-demo .send {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    background: var(--lime); display: grid; place-items: center;
+    transition: opacity 0.3s ease; opacity: 0.35;
+  }
+  .chat-demo .send.ready { opacity: 1; }
+  .chat-demo .send svg { width: 16px; height: 16px; }
+  .caret {
+    display: inline-block; width: 2px; height: 18px; margin-left: 1px;
     background: var(--lime); vertical-align: text-bottom;
     animation: blink 1.1s steps(1) infinite;
   }
@@ -280,7 +295,12 @@
     <p class="cta-note" id="version-note">macOS · Apple Silicon · free download</p>
 
     <div class="demo-stage" aria-hidden="true">
-      <div class="type-line"><span id="typed"></span><span class="caret"></span></div>
+      <div class="chat-demo" aria-hidden="true">
+        <div class="msg"><span id="typed"></span><span class="caret" id="caret"></span></div>
+        <div class="send" id="send-btn">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h13m0 0-5-5m5 5-5 5" stroke="#131400" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
       <div class="overlay-pill">
         <svg class="pulse-glyph" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <circle id="pulse-core" cx="12" cy="12" r="3" fill="#bbff02"/>
@@ -509,18 +529,46 @@
 </footer>
 
 <script>
-/* ---------- animated voice trace (same math as the real overlay) ---------- */
+/* ---------- coordinated dictation demo: pulse speaks, then text types ---------- */
 const canvas = document.getElementById("trace");
 const core = document.getElementById("pulse-core");
+const typed = document.getElementById("typed");
+const sendBtn = document.getElementById("send-btn");
 const NB = 16;
 let levels = new Array(NB).fill(0);
 let target = new Array(NB).fill(0);
-let phase = 0, speaking = true, sTimer = 0;
+let phase = 0, speaking = false;
+
+const phrases = [
+  "best pizza places near me",
+  "Hey! Running 10 minutes late, order me a flat white ☕",
+  "Summarize this doc into three bullet points",
+];
+let pi = 0;
+
+/* demo phase machine: LISTEN (pulse active) -> TYPE -> HOLD -> CLEAR */
+async function demoLoop() {
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  for (;;) {
+    const text = phrases[pi];
+    typed.textContent = "";
+    sendBtn.classList.remove("ready");
+    speaking = true;                 // voice pulse goes live
+    await sleep(2600);
+    speaking = false;                // release the key…
+    await sleep(350);
+    for (let i = 1; i <= text.length; i++) {   // …and the words land
+      typed.textContent = text.slice(0, i);
+      await sleep(14);
+    }
+    sendBtn.classList.add("ready");
+    await sleep(2400);
+    pi = (pi + 1) % phrases.length;
+  }
+}
 
 function step() {
   phase += 0.055;
-  sTimer -= 1;
-  if (sTimer <= 0) { speaking = !speaking; sTimer = speaking ? 200 + Math.random() * 180 : 55 + Math.random() * 50; }
   for (let i = 0; i < NB; i++) {
     const base = speaking ? Math.max(0, 0.85 - i * 0.055) : 0.02;
     const wob = speaking ? (Math.sin(phase * (1.1 + i * 0.23) + i) * 0.5 + 0.5) : 0;
@@ -566,32 +614,15 @@ function draw() {
 }
 
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-if (reduced) { levels = levels.map((_, i) => Math.max(0.05, 0.7 - i * 0.045)); draw(); }
-else requestAnimationFrame(step);
-
-/* ---------- typewriter ---------- */
-const phrases = [
-  "Stop typing what you could just say.",
-  "Dictated straight into this text field.",
-  "Private on-device — or your own AI key.",
-];
-const typed = document.getElementById("typed");
-let pi = 0, ci = 0, deleting = false;
-function type() {
-  if (reduced) { typed.textContent = phrases[0]; return; }
-  const cur = phrases[pi];
-  typed.textContent = cur.slice(0, ci);
-  if (!deleting) {
-    ci++;
-    if (ci > cur.length) { deleting = true; setTimeout(type, 2100); return; }
-    setTimeout(type, 42 + Math.random() * 45);
-  } else {
-    ci--;
-    if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
-    setTimeout(type, 16);
-  }
+if (reduced) {
+  levels = levels.map((_, i) => Math.max(0.05, 0.7 - i * 0.045));
+  draw();
+  typed.textContent = phrases[0];
+  sendBtn.classList.add("ready");
+} else {
+  requestAnimationFrame(step);
+  demoLoop();
 }
-type();
 
 /* ---------- ambient waveform background ---------- */
 const bg = document.getElementById("bg-wave");
