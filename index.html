@@ -314,14 +314,15 @@
   <div class="halo"></div>
   <div class="wrap">
     <img class="hero-icon" src="assets/icon-256.png" alt="VoiceApp icon" />
-    <p class="free-badge">100% free · no account · no subscription</p>
+    <p class="free-badge">7-day free trial · $10 lifetime · no subscription</p>
     <h1>Hold a key. Speak.<br />Your words appear — <span class="lime">in&nbsp;any&nbsp;app</span>.</h1>
-    <p class="sub">VoiceApp is free push-to-talk dictation for your Mac. Talk while you hold your hotkey, release, and the text types itself where your cursor is — editor, browser, chat, terminal.</p>
+    <p class="sub">VoiceApp is push-to-talk dictation for your Mac. Talk while you hold your hotkey, release, and the text types itself where your cursor is — editor, browser, chat, terminal. Try it free for 7 days, then it's $10 once — yours forever.</p>
     <div class="cta-row">
-      <a class="btn" id="hero-download" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download Free for macOS</a>
+      <a class="btn" id="hero-download" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download — Free 7-Day Trial</a>
+      <a class="btn ghost" href="https://voice-app.lemonsqueezy.com/checkout/buy/b986b4f8-85ba-44ac-a176-0167d5f98f66" target="_blank" rel="noopener">Buy Lifetime — $10</a>
       <a class="btn ghost" href="https://github.com/DistinctZA/voiceapp-releases/releases">All releases</a>
     </div>
-    <p class="cta-note" id="version-note">macOS · Apple Silicon · free download</p>
+    <p class="cta-note" id="version-note">macOS · Apple Silicon · 7-day free trial</p>
 
     <div class="demo-stage" aria-hidden="true">
       <div class="chat-demo" aria-hidden="true">
@@ -530,12 +531,13 @@
 <section class="final">
   <div class="halo2"></div>
   <div class="wrap">
-    <p class="eyebrow">Free download</p>
+    <p class="eyebrow">Try it free for 7 days</p>
     <h2>Stop typing what you could just say.</h2>
     <div class="cta-row">
-      <a class="btn" id="final-download" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download VoiceApp — Free</a>
+      <a class="btn" id="final-download" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download VoiceApp</a>
+      <a class="btn ghost" href="https://voice-app.lemonsqueezy.com/checkout/buy/b986b4f8-85ba-44ac-a176-0167d5f98f66" target="_blank" rel="noopener">Buy Lifetime — $10</a>
     </div>
-    <p class="cta-note">macOS · Apple Silicon · updates itself · free forever</p>
+    <p class="cta-note">macOS · Apple Silicon · updates itself · one-time $10, all updates included</p>
     <p class="cta-note" style="margin-top:8px">
       <a href="https://ko-fi.com/voiceapp" class="donate-foot" target="_blank" rel="noopener" style="color:var(--dim); text-decoration:underline; text-underline-offset:3px;">Enjoying it? Buy me a coffee ☕</a>
     </p>
@@ -716,7 +718,7 @@ fetch("https://api.github.com/repos/DistinctZA/voiceapp-releases/releases/latest
       document.getElementById(id).href = dmg.browser_download_url;
     const v = (rel.tag_name || "").replace(/^v/, "");
     if (v) document.getElementById("version-note").textContent =
-      `Version ${v} · macOS · Apple Silicon · free download`;
+      `Version ${v} · macOS · Apple Silicon · 7-day free trial`;
   })
   .catch(() => {});
 
