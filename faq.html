@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VoiceApp FAQ — Mac Dictation, Privacy, Models & Setup</title>
+<meta name="description" content="Answers about VoiceApp: how push-to-talk dictation works on Mac, whether it's private, on-device vs cloud speech-to-text models, supported languages, system requirements, and setup." />
+<link rel="canonical" href="https://voice-app.xyz/faq.html" />
+<meta property="og:title" content="VoiceApp FAQ — Mac Dictation Questions Answered" />
+<meta property="og:description" content="How VoiceApp dictation works on macOS, privacy, on-device vs cloud models, languages, and setup." />
+<meta property="og:image" content="https://voice-app.xyz/assets/social-card.png" />
+<meta property="og:url" content="https://voice-app.xyz/faq.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://voice-app.xyz/assets/social-card.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is VoiceApp?","acceptedAnswer":{"@type":"Answer","text":"VoiceApp is a push-to-talk dictation app for macOS. You hold a hotkey, speak, and release — and your words are typed into whatever app your cursor is in: an editor, browser, chat box, or terminal. It works everywhere the keyboard works, so you are not limited to one app."}},
+    {"@type":"Question","name":"Is VoiceApp private? Does my voice leave my Mac?","acceptedAnswer":{"@type":"Answer","text":"It depends on the model you choose. With the built-in on-device models (Whisper and Parakeet), transcription runs entirely on your Mac and no audio leaves the device. If you opt into a cloud provider (Grok, OpenAI, or ElevenLabs) using your own API key, audio is sent to that provider for transcription. On-device mode is the default for privacy."}},
+    {"@type":"Question","name":"What is the difference between the on-device and cloud models?","acceptedAnswer":{"@type":"Answer","text":"On-device models (Whisper, Parakeet) run locally, work offline, are private, and are free to run. Cloud models (Grok, OpenAI gpt-4o-transcribe, ElevenLabs Scribe) can be more accurate on hard audio and support more languages, but require your own API key and send audio to that provider. You can switch between them at any time in Settings."}},
+    {"@type":"Question","name":"Which languages does VoiceApp support?","acceptedAnswer":{"@type":"Answer","text":"The Whisper on-device models and most cloud providers support 90+ languages with automatic language detection. The Parakeet model is English-only but very fast. You can set a specific language or leave it on auto-detect."}},
+    {"@type":"Question","name":"What are the system requirements?","acceptedAnswer":{"@type":"Answer","text":"VoiceApp runs on Apple Silicon Macs (M1 or newer) on a recent version of macOS. It is a small download, and the on-device speech models download once and then work offline."}},
+    {"@type":"Question","name":"How do I set up VoiceApp?","acceptedAnswer":{"@type":"Answer","text":"Download the app, open it, and grant Microphone and Accessibility permissions when prompted (Accessibility lets it type into other apps). Pick a hotkey, choose a model, and start dictating. There is no account to create."}},
+    {"@type":"Question","name":"Does VoiceApp work in any app?","acceptedAnswer":{"@type":"Answer","text":"Yes. Because VoiceApp types your transcription as keyboard input, it works in any Mac app that accepts text — email, documents, browsers, chat apps, code editors, and the terminal."}},
+    {"@type":"Question","name":"Is VoiceApp better than Apple's built-in dictation?","acceptedAnswer":{"@type":"Answer","text":"VoiceApp offers a choice of modern speech models (including large Whisper and cloud AI), a consistent push-to-talk hotkey that works the same in every app, custom vocabulary, and automatic updates. Apple Dictation is built in and convenient, but VoiceApp gives more control over accuracy, models, and privacy."}},
+    {"@type":"Question","name":"How do I update VoiceApp?","acceptedAnswer":{"@type":"Answer","text":"VoiceApp checks for updates automatically and can install them in place. Updates are code-signed and notarized by Apple, so they install cleanly without security warnings."}},
+    {"@type":"Question","name":"How much does VoiceApp cost?","acceptedAnswer":{"@type":"Answer","text":"VoiceApp is free to download and try. See the download page for the latest on pricing. The on-device models are free to run; cloud models use your own API key and are billed by that provider."}}
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/pages.css" />
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="/"><img src="assets/icon-256.png" alt="VoiceApp icon" />VoiceApp</a>
+    <span style="display:flex;gap:10px">
+      <a class="btn ghost small" href="/faq.html">FAQ</a>
+      <a class="btn small" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">Download</a>
+    </span>
+  </div>
+</nav>
+
+<header class="page">
+  <div class="wrap">
+    <p class="eyebrow">Frequently Asked Questions</p>
+    <h1>VoiceApp FAQ</h1>
+    <p class="lede">Everything about dictating on your Mac with VoiceApp — how it works, privacy, the speech models, languages, and setup.</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Home</a> › FAQ</p>
+
+    <div class="faq-item"><h3>What is VoiceApp?</h3><p>VoiceApp is a push-to-talk dictation app for macOS. You hold a hotkey, speak, and release — and your words are typed into whatever app your cursor is in: an editor, browser, chat box, or terminal. It works everywhere the keyboard works, so you're not limited to one app.</p></div>
+
+    <div class="faq-item"><h3>Is VoiceApp private? Does my voice leave my Mac?</h3><p>It depends on the model you choose. With the built-in <strong>on-device models</strong> (Whisper and Parakeet), transcription runs entirely on your Mac and no audio leaves the device. If you opt into a <strong>cloud provider</strong> (Grok, OpenAI, or ElevenLabs) using your own API key, audio is sent to that provider for transcription. On-device mode is the default for privacy.</p></div>
+
+    <div class="faq-item"><h3>What's the difference between the on-device and cloud models?</h3><p>On-device models (Whisper, Parakeet) run locally, work offline, are private, and are free to run. Cloud models (Grok, OpenAI gpt-4o-transcribe, ElevenLabs Scribe) can be more accurate on hard audio and support more languages, but require your own API key and send audio to that provider. You can switch between them at any time in Settings.</p></div>
+
+    <div class="faq-item"><h3>Which languages does VoiceApp support?</h3><p>The Whisper on-device models and most cloud providers support 90+ languages with automatic language detection. The Parakeet model is English-only but very fast. You can set a specific language or leave it on auto-detect.</p></div>
+
+    <div class="faq-item"><h3>What are the system requirements?</h3><p>VoiceApp runs on Apple Silicon Macs (M1 or newer) on a recent version of macOS. It's a small download, and the on-device speech models download once and then work offline.</p></div>
+
+    <div class="faq-item"><h3>How do I set up VoiceApp?</h3><p>Download the app, open it, and grant Microphone and Accessibility permissions when prompted (Accessibility lets it type into other apps). Pick a hotkey, choose a model, and start dictating. There's no account to create.</p></div>
+
+    <div class="faq-item"><h3>Does VoiceApp work in any app?</h3><p>Yes. Because VoiceApp types your transcription as keyboard input, it works in any Mac app that accepts text — email, documents, browsers, chat apps, code editors, and the terminal.</p></div>
+
+    <div class="faq-item"><h3>Is VoiceApp better than Apple's built-in dictation?</h3><p>VoiceApp offers a choice of modern speech models (including large Whisper and cloud AI), a consistent push-to-talk hotkey that works the same in every app, custom vocabulary, and automatic updates. Apple Dictation is built in and convenient, but VoiceApp gives more control over accuracy, models, and privacy. See the <a href="/compare.html">comparison</a> for details.</p></div>
+
+    <div class="faq-item"><h3>How do I update VoiceApp?</h3><p>VoiceApp checks for updates automatically and can install them in place. Updates are code-signed and notarized by Apple, so they install cleanly without security warnings.</p></div>
+
+    <div class="faq-item"><h3>How much does VoiceApp cost?</h3><p>VoiceApp is free to download and try — see the <a href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">download page</a> for the latest on pricing. The on-device models are free to run; cloud models use your own API key and are billed by that provider.</p></div>
+
+    <div class="cta-box">
+      <h2>Ready to try it?</h2>
+      <p>Download VoiceApp for macOS and start dictating in any app.</p>
+      <p style="margin-top:16px"><a class="btn" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download for macOS</a></p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© VoiceApp · voice-app.xyz</span>
+    <span><a href="/">Home</a> · <a href="/faq.html">FAQ</a> · <a href="/compare.html">Compare</a></span>
+  </div>
+</footer>
+</body>
+</html>
