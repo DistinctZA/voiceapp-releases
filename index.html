@@ -313,7 +313,7 @@
   <div class="halo"></div>
   <div class="wrap">
     <img class="hero-icon" src="assets/icon-256.png" alt="VoiceApp icon" />
-    <p class="free-badge">7-day free trial · $10 lifetime · no subscription</p>
+    <p class="free-badge">7-day free trial · $10 lifetime · up to 3 Macs · no subscription</p>
     <h1>Hold a key. Speak.<br />Your words appear — <span class="lime">in&nbsp;any&nbsp;app</span>.</h1>
     <p class="sub">VoiceApp is push-to-talk dictation for your Mac. Talk while you hold your hotkey, release, and the text types itself where your cursor is — editor, browser, chat, terminal. Try it free for 7 days, then it's $10 once — yours forever.</p>
     <div class="cta-row">
@@ -321,7 +321,7 @@
       <a class="btn ghost" href="https://www.paypal.com/ncp/payment/3N7C8BAHNZJRN" target="_blank" rel="noopener">Buy Lifetime — $10</a>
       <a class="btn ghost" href="https://github.com/DistinctZA/voiceapp-releases/releases">All releases</a>
     </div>
-    <p class="cta-note" id="version-note">macOS · Apple Silicon · 7-day free trial</p>
+    <p class="cta-note" id="version-note">macOS · Apple Silicon · 7-day free trial · one licence, up to 3 Macs</p>
 
     <div class="demo-stage" aria-hidden="true">
       <div class="chat-demo" aria-hidden="true">
@@ -536,7 +536,7 @@
       <a class="btn" id="final-download" href="https://github.com/DistinctZA/voiceapp-releases/releases/latest">⬇ Download VoiceApp</a>
       <a class="btn ghost" href="https://www.paypal.com/ncp/payment/3N7C8BAHNZJRN" target="_blank" rel="noopener">Buy Lifetime — $10</a>
     </div>
-    <p class="cta-note">macOS · Apple Silicon · updates itself · one-time $10, all updates included</p>
+    <p class="cta-note">macOS · Apple Silicon · updates itself · one-time $10, all updates included · activate on up to 3 Macs</p>
   </div>
 </section>
 
@@ -714,7 +714,7 @@ fetch("https://api.github.com/repos/DistinctZA/voiceapp-releases/releases/latest
       document.getElementById(id).href = dmg.browser_download_url;
     const v = (rel.tag_name || "").replace(/^v/, "");
     if (v) document.getElementById("version-note").textContent =
-      `Version ${v} · macOS · Apple Silicon · 7-day free trial`;
+      `Version ${v} · macOS · Apple Silicon · 7-day free trial · one licence, up to 3 Macs`;
   })
   .catch(() => {});
 
